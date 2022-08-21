@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button>第一</button>
+  
+    <button>第二</button>
+  
+    <button>第三</button>
+
+    <script>
+        
+        // let btns =document.querySelectorAll('button');
+        // for (var i = 0;i < btns.length ;i++){
+            
+        //     btns[i].onclick = function(){
+        //         alert('第'+ i +'个')  
+            //全部为3
+            //i在全局声明，i=3 时候才跳出循环
+            //所有按钮绑定了打印i  的事件  ，此时i = 3  
+        //     }
+        // }
+        
+        // 解法1.给当前选出的按钮，添加index属性 等于当前的i
+            //  读取this.index 0-3，而不是读取全局变量 的 i = 3
+        // let btns =document.querySelectorAll('button');
+        // for (var i = 0;i < btns.length ;i++){
+        //     btns[i].index = i 
+        //     btns[i].onclick = function(){
+        //         alert('第'+ (this.index +1) +'个')
+        //     }
+        // }
+
+
+        //2.利用闭包
+        //立即执行函数，下面的i 接受全局变量
+        //函数接受的i由外部传入，函数里面 使用的是局部变量
+        // let btns =document.querySelectorAll('button');
+        // for (var i = 0;i < btns.length ;i++){
+        //     (function(i){
+
+        //          btns[i].onclick = function(){i
+        //         alert('第'+ (i +1) +'个')
+        //     }
+        //     })(i)
+
+        // }
+
+        // 3.every 数组方法
+        let arr = [{ cur:1 },{cur:2},{cur:3},{num:4}];
+        
+        let result = arr.every(item=>item.cur == 1) //遍历元素，执行判断，返回布尔值
+        console.log(result);
+    </script>
+  
+</body>
+</html>
